@@ -1,0 +1,130 @@
+package com.dora.test_datastructures.linkedlist;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import com.dora.datastructures.linkedlist.LinkedList;
+
+class LinkedListTest {
+
+	@Test
+	void createEmptyList() {
+		LinkedList<Integer> list = new LinkedList<>();
+		assertTrue(list.isEmpty());
+	}
+	
+	@Test
+	void testAddElement() {
+		LinkedList<Integer> list = new LinkedList<>();
+		
+		int size = 10;
+		for(int i = 0; i < size; i++){
+			list.add(i);
+		}
+		
+		assertEquals(list.getSize(), size);
+	}
+	
+	@Test
+	void testInsertFirst() {
+		LinkedList<Integer> list = new LinkedList<>();
+		
+		int size = 10;
+		for(int i = 0; i < size; i++){
+			list.add(i);
+		}
+		
+		list.insert(0, 0);
+		
+		assertEquals(list.getSize(), size + 1);
+	}
+	
+	@Test
+	void testInsertList() {
+		LinkedList<Integer> list = new LinkedList<>();
+		
+		int size = 10;
+		for(int i = 0; i < size; i++){
+			list.add(i);
+		}
+		
+		list.insert(10, 10);
+		
+		assertEquals(list.getSize(), size + 1);
+	}
+	
+	@Test
+	void testSearch() {
+		LinkedList<Integer> list = new LinkedList<>();
+		
+		int size = 10;
+		for(int i = 0; i < size; i++){
+			list.add(i);
+		}
+		
+		list.insert(10, 10);
+		
+		assertEquals(list.indextOf(0), 0);
+		assertEquals(list.indextOf(10), 10);
+	}
+	
+	@Test
+	void testRemoveException() {
+		LinkedList<Integer> list = new LinkedList<>();
+		
+		int size = 10;
+		for(int i = 0; i < size; i++){
+			list.add(i);
+		}
+		
+		assertFalse(list.remove(11));
+		
+	}
+	
+	@Test
+	void testRemoveFirst() {
+		LinkedList<Integer> list = new LinkedList<>();
+		
+		int size = 10;
+		for(int i = 0; i < size; i++){
+			list.add(i);
+		}
+		
+		list.remove(0);
+		assertEquals(list.getSize(), size-1);
+		assertEquals(list.indextOf(1), 0);
+	}
+	
+	@Test
+	void testRemove() {
+		LinkedList<Integer> list = new LinkedList<>();
+		
+		int size = 10;
+		for(int i = 0; i < size; i++){
+			list.add(i);
+		}
+		
+		list.remove(4);
+		list.remove(7);
+		
+		assertEquals(list.getSize(), size - 2);
+	}
+	
+	@Test
+	void testAllRemove() {
+		LinkedList<Integer> list = new LinkedList<>();
+		
+		int size = 10;
+		for(int i = 0; i < size; i++){
+			list.add(i);
+		}
+		
+		for(int i = 0; i < size; i++){
+			list.remove(i);
+		}
+		
+		assertTrue(list.isEmpty());
+	}
+
+}
