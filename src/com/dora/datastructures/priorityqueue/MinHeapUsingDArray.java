@@ -58,7 +58,7 @@ public class MinHeapUsingDArray<T extends Comparable<T>> {
 	 */
 	public T poll() {
 		
-		if(isEmpty()) throw new RuntimeException("Min Heap is Empty");
+		if(isEmpty()) throw new RuntimeException("Min Heap is Empty");		
 		
 		T data = arr[0];
 		
@@ -104,7 +104,7 @@ public class MinHeapUsingDArray<T extends Comparable<T>> {
 			
 			int smallChild = getLeftChild(index);
 			if(hasRightChild(index)) {
-				if(less(getRightChild(index), smallChild))
+				if(less(arr[getRightChild(index)], arr[smallChild]))
 					smallChild = getRightChild(index);
 			}
 			

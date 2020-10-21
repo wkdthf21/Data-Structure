@@ -34,14 +34,27 @@ class MinHeapUsingDArrayTest {
 	}
 	
 	@Test
+	void findMinValue() {
+		MinHeapUsingDArray<Integer> minHeap = new MinHeapUsingDArray<>();
+		for(int i = 9; i >= 0; i--) {
+			minHeap.add(i);
+		}
+		for(int i = 0; i < 10; i++) {
+			assertEquals(minHeap.poll(), i);
+		}
+	}
+	
+	@Test
 	void testHeapSort() {
 		
 		Integer[] arr = {1, 4, 5, 2, 3, 10};
+		Integer[] answer = {10, 5, 4, 3, 2, 1};
 		HeapSort<Integer> heapSort = new HeapSort<>();
 		
 		arr = heapSort.sortDescending(arr);
-		for(int i = 0; i < arr.length; i++)
-			System.out.print(arr[i] + " ");
+		for(int i = 0; i < arr.length; i++) {
+			assertEquals(arr[i], answer[i]);
+		}
 		
 	}
 
