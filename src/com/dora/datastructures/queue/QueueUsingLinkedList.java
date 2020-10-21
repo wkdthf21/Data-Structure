@@ -2,7 +2,7 @@ package com.dora.datastructures.queue;
 
 /**
  * 
- * Queue using Single Linked List
+ * Queue using Doubly Linked List
  * 
  * @author yesol
  *
