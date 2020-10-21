@@ -1,4 +1,4 @@
-package com.dora.datastructures.queue;
+package com.dora.datastructures.dequeue;
 
 /**
  * 

@@ -1,10 +1,10 @@
-package com.dora.test_datastructures.queue;
+package com.dora.test_datastructures.dequeue;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import com.dora.datastructures.queue.DequeueUsingLinkedList;
+import com.dora.datastructures.dequeue.DequeueUsingLinkedList;
 
 class DequeueUsingLinkedListTest {
 
