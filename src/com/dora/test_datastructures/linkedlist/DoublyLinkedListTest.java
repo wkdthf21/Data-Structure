@@ -2,12 +2,9 @@ package com.dora.test_datastructures.linkedlist;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Iterator;
-
 import org.junit.jupiter.api.Test;
 
 import com.dora.datastructures.linkedlist.DoublyLinkedList;
-import com.dora.datastructures.linkedlist.LinkedList;
 
 class DoublyLinkedListTest {
 
