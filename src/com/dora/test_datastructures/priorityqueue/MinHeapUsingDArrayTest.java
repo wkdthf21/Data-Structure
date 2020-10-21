@@ -1,0 +1,48 @@
+package com.dora.test_datastructures.priorityqueue;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import com.dora.datastructures.priorityqueue.HeapSort;
+import com.dora.datastructures.priorityqueue.MinHeapUsingDArray;
+
+class MinHeapUsingDArrayTest {
+
+	@Test
+	void createEmptyMinHeap() {
+		MinHeapUsingDArray<Integer> minHeap = new MinHeapUsingDArray<>();
+		assertTrue(minHeap.isEmpty());
+	}
+	
+	@Test
+	void testBuildMinHeap() {
+		Integer[] arr = {1, 4, 5, 2, 3, 10};
+		MinHeapUsingDArray<Integer> minHeap = new MinHeapUsingDArray<>(arr);
+		assertEquals(minHeap.getSize(), arr.length);
+	}
+	
+	@Test
+	void testAdd() {
+		MinHeapUsingDArray<Integer> minHeap = new MinHeapUsingDArray<>();
+		
+		for(int i = 9; i >= 0; i--) {
+			minHeap.add(i);
+		}
+		
+		assertEquals(minHeap.getSize(), 10);
+	}
+	
+	@Test
+	void testHeapSort() {
+		
+		Integer[] arr = {1, 4, 5, 2, 3, 10};
+		HeapSort<Integer> heapSort = new HeapSort<>();
+		
+		arr = heapSort.sortDescending(arr);
+		for(int i = 0; i < arr.length; i++)
+			System.out.print(arr[i] + " ");
+		
+	}
+
+}
