@@ -102,17 +102,17 @@ public class MinHeapUsingDArray<T extends Comparable<T>> {
 		
 		while(hasLeftChild(index)) {
 			
-			int smallChild = getLeftChild(index);
+			int smallChildIdx = getLeftChildIdx(index);
 			if(hasRightChild(index)) {
-				if(less(arr[getRightChild(index)], arr[smallChild]))
-					smallChild = getRightChild(index);
+				if(less(arr[getRightChildIdx(index)], arr[smallChildIdx]))
+					smallChildIdx = getRightChildIdx(index);
 			}
 			
-			if(less(arr[index], arr[smallChild])) break;
+			if(less(arr[index], arr[smallChildIdx])) break;
 			else
-				swap(index, smallChild);
+				swap(index, smallChildIdx);
 			
-			index = smallChild;
+			index = smallChildIdx;
 		}
 		
 	}
@@ -128,7 +128,7 @@ public class MinHeapUsingDArray<T extends Comparable<T>> {
 	private void swim(int index) {
 		
 		while(hasParent(index)) {
-			int parent = getParent(index);
+			int parent = getParentIdx(index);
 			if(less(arr[index], arr[parent])) {
 				swap(parent, index);
 				index = parent;
@@ -146,28 +146,28 @@ public class MinHeapUsingDArray<T extends Comparable<T>> {
 		return size;
 	}
 	
-	private int getLeftChild(int index) {
+	private int getLeftChildIdx(int index) {
 		return index * 2 + 1;
 	}
 	
-	private int getRightChild(int index) {
+	private int getRightChildIdx(int index) {
 		return index * 2 + 2;
 	}
 	
-	private int getParent(int index) {
+	private int getParentIdx(int index) {
 		return (index - 1) / 2;
 	}
 	
 	private boolean hasLeftChild(int index) {
-		return getLeftChild(index) < size;
+		return getLeftChildIdx(index) < size;
 	}
 
 	private boolean hasRightChild(int index) {
-		return getRightChild(index) < size;
+		return getRightChildIdx(index) < size;
 	}
 	
 	private boolean hasParent(int index) {
-		return getParent(index) >= 0;
+		return getParentIdx(index) >= 0;
 	}
 	
 	private void swap(int index1, int index2) {
