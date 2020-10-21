@@ -159,16 +159,18 @@ public class DynamicArray<T> implements Iterable<T> {
 	public Iterator<T> iterator() {
 		return new java.util.Iterator<T>() {
 
+			int idx = 0;
+			
 			@Override
 			public boolean hasNext() {
 				// TODO Auto-generated method stub
-				return false;
+				return idx < size;
 			}
 
 			@Override
 			public T next() {
 				// TODO Auto-generated method stub
-				return null;
+				return arr[idx++];
 			}
 			
 		};
