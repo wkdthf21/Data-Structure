@@ -94,4 +94,44 @@ public class Sort<T extends Comparable<T>> {
 		return arr;
 	}
 	
+	
+	public T[] mergeSort(T[] arr) {
+		partition(arr, 0, arr.length);
+		return arr;
+	}
+	
+	
+	private void partition(T[] arr, int left, int right) {
+	
+		if(right - left == 1 || left == right) {
+			return;
+		}
+		else if(left < right) {
+			int mid = (left + right) / 2;
+			partition(arr, left, mid);
+			partition(arr, mid+1, right);
+			merge(arr, left, mid, right);
+		}
+		
+	}
+	
+	private void merge(T[] arr, int left, int mid, int right) {
+		
+		int l = left;
+		int r = mid + 1;
+		int k = left;
+		
+		while(l <= mid && r < right) {
+			if(arr[l].compareTo(arr[r]) < 0) arr[k++] = arr[l++];
+			else arr[k++] = arr[r++];
+		}
+		
+		int i = (mid < l) ? r : l;
+		
+		while(k < right) {
+			arr[k++] = arr[i++];
+		}
+		
+	}
+	
 }

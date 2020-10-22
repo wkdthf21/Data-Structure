@@ -43,6 +43,7 @@ class SelectionSortTest {
 		System.out.println();
 	}
 	
+	
 	@Test
 	void testHeapSort() {
 		Sort<Integer> sort = new Sort<>();
@@ -52,4 +53,16 @@ class SelectionSortTest {
 		}
 		System.out.println();
 	}
+	
+	
+	@Test
+	void mergeSort() {
+		Sort<Integer> sort = new Sort<>();
+		arr = sort.mergeSort(arr);
+		for(int i : arr) {
+			System.out.print(i + " " );
+		}
+		System.out.println();
+	}
+	
 }
