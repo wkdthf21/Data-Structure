@@ -117,19 +117,24 @@ public class Sort<T extends Comparable<T>> {
 	
 	private void merge(T[] arr, int left, int mid, int right) {
 		
+		T[] tempArr = (T[])new Object[arr.length];
 		int l = left;
 		int r = mid + 1;
 		int k = left;
 		
 		while(l <= mid && r < right) {
-			if(arr[l].compareTo(arr[r]) < 0) arr[k++] = arr[l++];
-			else arr[k++] = arr[r++];
+			if(arr[l].compareTo(arr[r]) < 0) tempArr[k++] = arr[l++];
+			else tempArr[k++] = arr[r++];
 		}
 		
 		int i = (mid < l) ? r : l;
 		
 		while(k < right) {
-			arr[k++] = arr[i++];
+			tempArr[k++] = arr[i++];
+		}
+		
+		for(int j = left; j < right; j++) {
+			arr[j] = tempArr[j];
 		}
 		
 	}
