@@ -8,10 +8,12 @@ import com.dora.algorithm.sort.Sort;
 
 class SelectionSortTest {
 
+	
+	private static Integer[] arr = {1, -1, 10, 5, 3 , 99, 77, 17};
+	
 	@Test
 	void testSelectionSort() {
 		Sort<Integer> sort = new Sort<>();
-		Integer[] arr = {1, -1, 10, 5, 3 , 99, 77, 17};
 		arr = sort.selectionSort(arr);
 		for(int i : arr) {
 			System.out.print(i + " " );
@@ -22,7 +24,6 @@ class SelectionSortTest {
 	@Test
 	void testInsertionSort() {
 		Sort<Integer> sort = new Sort<>();
-		Integer[] arr = {1, -1, 10, 5, 3 , 99, 77, 17};
 		arr = sort.insertionSort(arr);
 		for(int i : arr) {
 			System.out.print(i + " " );
@@ -36,6 +37,16 @@ class SelectionSortTest {
 		Sort<Integer> sort = new Sort<>();
 		Integer[] arr = {1, -1, 10, 5, 3 , 99, 77, 17};
 		arr = sort.bubbleSort(arr);
+		for(int i : arr) {
+			System.out.print(i + " " );
+		}
+		System.out.println();
+	}
+	
+	@Test
+	void testHeapSort() {
+		Sort<Integer> sort = new Sort<>();
+		arr = sort.heapSort(arr);
 		for(int i : arr) {
 			System.out.print(i + " " );
 		}

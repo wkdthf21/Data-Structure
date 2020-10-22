@@ -1,5 +1,8 @@
 package com.dora.algorithm.sort;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class Sort<T extends Comparable<T>> {
 	
 	
@@ -69,4 +72,26 @@ public class Sort<T extends Comparable<T>> {
 		
 		return arr;
 	}
+	
+	
+	public T[] heapSort(T[] arr) {
+		
+		PriorityQueue<T> pq = new PriorityQueue<>(new Comparator<T>() {
+			@Override
+			public int compare(T o1, T o2) {
+				return -o1.compareTo(o2); 
+			}
+		});
+		
+		for(int i = 0; i < arr.length; i++) {
+			pq.add(arr[i]);
+		}
+		
+		for(int i = arr.length - 1; i >= 0; i--) {
+			arr[i] = pq.poll();
+		}
+		
+		return arr;
+	}
+	
 }
