@@ -96,20 +96,57 @@ public class Sort<T extends Comparable<T>> {
 	
 	
 	public T[] mergeSort(T[] arr) {
-		partition(arr, 0, arr.length);
+		partition(arr, 0, arr.length - 1);
 		return arr;
+	}
+	
+	public T[] quickSort(T[] arr) {
+		
+		quickSort(arr, 0, arr.length - 1);
+		
+		return arr;
+		
+	}
+	
+	public void quickSort(T[] arr, int left, int right) {
+		
+		T pivot = arr[(left + right) / 2];
+		int low = left;
+		int high = right;
+		
+		T temp;
+		while(low <= high) {
+			
+			while(arr[low].compareTo(pivot) < 0) {	
+				++low;
+			}
+		
+			while(arr[high].compareTo(pivot) > 0) {
+				--high;
+			}
+			
+			if(low <= high) {
+				temp = arr[low];
+				arr[low] = arr[high];
+				arr[high] = temp;
+				++low;
+				--high;
+			}			
+		}
+	
+		if(left < high) quickSort(arr, left, high);
+		if(right > low) quickSort(arr, low, right);
+
+	
 	}
 	
 	
 	private void partition(T[] arr, int left, int right) {
 	
-		if(right - left == 1 || left == right) {
-			return;
-		}
-		else if(left < right) {
+		if(left < right) {
 			int mid = (left + right) / 2;
 			partition(arr, left, mid);
-			partition(arr, mid+1, right);
+			partition(arr, mid + 1, right);
 			merge(arr, left, mid, right);
 		}
 		
@@ -122,18 +159,18 @@ public class Sort<T extends Comparable<T>> {
 		int r = mid + 1;
 		int k = left;
 		
-		while(l <= mid && r < right) {
+		while(l <= mid && r <= right) {
 			if(arr[l].compareTo(arr[r]) < 0) tempArr[k++] = arr[l++];
 			else tempArr[k++] = arr[r++];
 		}
 		
 		int i = (mid < l) ? r : l;
 		
-		while(k < right) {
+		while(k <= right) {
 			tempArr[k++] = arr[i++];
 		}
 		
-		for(int j = left; j < right; j++) {
+		for(int j = left; j <= right; j++) {
 			arr[j] = tempArr[j];
 		}
 		
