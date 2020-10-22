@@ -117,7 +117,7 @@ public class Sort<T extends Comparable<T>> {
 	
 	private void merge(T[] arr, int left, int mid, int right) {
 		
-		T[] tempArr = (T[])new Object[arr.length];
+		T[] tempArr = (T[]) new Comparable[arr.length];
 		int l = left;
 		int r = mid + 1;
 		int k = left;
