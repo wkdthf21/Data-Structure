@@ -12,7 +12,14 @@ public class GraphSearch {
 	boolean[] isVisited;
 	
 	public GraphSearch(int[][] graph) {
-		this.graph = graph;
+		
+		this.graph = new int[graph.length][graph.length];
+		
+		for(int i = 0; i < graph.length; i++) {
+			// 2d array deep copy
+			System.arraycopy(graph[i], 0, this.graph[i], 0, graph.length);
+		}
+		
 	}
 	
 	public void dfsRecursive() {	

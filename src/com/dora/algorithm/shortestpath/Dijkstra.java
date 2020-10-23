@@ -11,7 +11,13 @@ public class Dijkstra {
 	private static final int INF = 2147483647;
 	
 	public Dijkstra(int[][] graph) {
-		this.graph = Arrays.copyOf(graph, graph.length);
+		
+		this.graph = new int[graph.length][graph.length];
+		
+		for(int i = 0; i < graph.length; i++) {
+			// 2d array deep copy
+			System.arraycopy(graph[i], 0, this.graph[i], 0, graph.length);
+		}		
 		this.isVisited = new boolean[graph.length];
 		this.dist = new int[graph.length];
 		Arrays.fill(isVisited, false);
