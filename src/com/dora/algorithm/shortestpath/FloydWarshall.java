@@ -10,8 +10,8 @@ public class FloydWarshall {
 	
 	public FloydWarshall(int[][] graph) {
 		
-		dist = new int[graph.length][graph.length];
-		entryNode = new int[graph.length][graph.length];
+		dist = new int[graph.length][graph[0].length];
+		entryNode = new int[graph.length][graph[0].length];
 		
 		for(int i = 0; i < graph.length; i++) {
 			// 2d array deep copy

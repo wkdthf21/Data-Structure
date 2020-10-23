@@ -38,7 +38,7 @@ public class Kruskal {
 	
 	
 	public Kruskal(int[][] graph) {
-		this.graph = new int[graph.length][graph.length];
+		this.graph = new int[graph.length][graph[0].length];
 		
 		for(int i = 0; i < graph.length; i++) {
 			// 2d array deep copy
